@@ -27,40 +27,34 @@ Constraints:
 s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 */
 
-#include <stdio.h>
-
 int romanToInt(char* s) {
-    int values[256] = {0};  
-    int result = 0;         
-    int i = 0;             
+    int values[256]={0};
+    int result=0;
+    int i=0;
 
-    values['I'] = 1;
-    values['V'] = 5;
-    values['X'] = 10;
-    values['L'] = 50;
-    values['C'] = 100;
-    values['D'] = 500;
-    values['M'] = 1000;
+    values['I']=1;
+    values['V']=5;
+    values['X']=10;
+    values['L']=50;
+    values['C']=100;
+    values['D']=500;
+    values['M']=1000;
 
-    while (s[i] != '\0') {
-        int current = values[(unsigned char)s[i]];     
-        int next = values[(unsigned char)s[i + 1]];      
+    while(s[i]!='\0')
+    {
+        int current=values[(unsigned char)s[i]];
+        int next=values[(unsigned char)s[i+1]];
 
-        if (current < next) {
-            result += (next - current);  
-            i += 2;                     
+        if(current<next)
+        {
+            result+=(next-current);
+            i+=2;
         }
-        else {
-            result += current; 
-            i += 1;            
+        else if(current>=next)
+        {
+            result+=current;
+            i+=1;
         }
     }
     return result;
-}
-
-int main() {
-    printf("Input: III, Output: %d\n", romanToInt("III"));
-    printf("Input: LVIII, Output: %d\n", romanToInt("LVIII"));
-    printf("Input: MCMXCIV, Output: %d\n", romanToInt("MCMXCIV"));
-    return 0;
 }
