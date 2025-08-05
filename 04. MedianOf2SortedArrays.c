@@ -15,11 +15,6 @@
  ============================================================================
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <math.h>
-
 double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Size) {
     if (nums1Size > nums2Size) {
         return findMedianSortedArrays(nums2, nums2Size, nums1, nums1Size);
@@ -55,31 +50,3 @@ double findMedianSortedArrays(int* nums1, int nums1Size, int* nums2, int nums2Si
     return -1.0;
 }
 
-int main() {
-    int m, n;
-    printf("Enter the number of elements in first sorted array: ");
-    scanf("%d", &m);
-
-    int* nums1 = (int*)malloc(m * sizeof(int));
-    printf("Enter %d sorted elements for the first array:\n", m);
-    for (int i = 0; i < m; i++) {
-        scanf("%d", &nums1[i]);
-    }
-
-    printf("Enter the number of elements in second sorted array: ");
-    scanf("%d", &n);
-
-    int* nums2 = (int*)malloc(n * sizeof(int));
-    printf("Enter %d sorted elements for the second array:\n", n);
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &nums2[i]);
-    }
-
-    double median = findMedianSortedArrays(nums1, m, nums2, n);
-    printf("Median of the two sorted arrays: %.5f\n", median);
-
-    free(nums1);
-    free(nums2);
-
-    return 0;
-}
