@@ -13,14 +13,13 @@
  * - It is guaranteed that the list represents a number that does not have leading zeros.
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-struct ListNode {
-    int val;
-    struct ListNode *next;
-};
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     struct ListNode *dummyHead = malloc(sizeof(struct ListNode));
     dummyHead->val = 0;
@@ -41,7 +40,6 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
         }
 
         carry = sum / 10;
-
         struct ListNode* newNode = malloc(sizeof(struct ListNode));
         newNode->val = sum % 10;
         newNode->next = NULL;
@@ -51,62 +49,6 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     }
 
     struct ListNode* result = dummyHead->next;
-    free(dummyHead);  
+    free(dummyHead); 
     return result;
-}
-
-struct ListNode* createList(int* arr, int size) {
-    struct ListNode* head = NULL;
-    struct ListNode* tail = NULL;
-
-    for (int i = 0; i < size; i++) {
-        struct ListNode* newNode = malloc(sizeof(struct ListNode));
-        newNode->val = arr[i];
-        newNode->next = NULL;
-
-        if (!head) {
-            head = newNode;
-            tail = newNode;
-        } else {
-            tail->next = newNode;
-            tail = tail->next;
-        }
-    }
-    return head;
-}
-
-void printList(struct ListNode* head) {
-    while (head) {
-        printf("%d", head->val);
-        if (head->next) printf(" -> ");
-        head = head->next;
-    }
-    printf("\n");
-}
-
-void freeList(struct ListNode* head) {
-    while (head) {
-        struct ListNode* temp = head;
-        head = head->next;
-        free(temp);
-    }
-}
-
-int main() {
-    int arr1[] = {2, 4, 3};
-    int arr2[] = {5, 6, 4};
-
-    struct ListNode* l1 = createList(arr1, 3);
-    struct ListNode* l2 = createList(arr2, 3);
-
-    struct ListNode* result = addTwoNumbers(l1, l2);
-
-    printf("Result: ");
-    printList(result);
-
-    freeList(l1);
-    freeList(l2);
-    freeList(result);
-
-    return 0;
 }
