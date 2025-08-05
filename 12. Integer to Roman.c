@@ -27,33 +27,23 @@ Constraints:
 1 <= num <= 3999
 */
 
-#include <stdio.h>
-#include <string.h>
-
 char* intToRoman(int num) {
-    static char roman[20]; 
-    int pos = 0;          
-    int i = 0;
+    static char roman[20];
+    int pos=0;
+    int i=0;
 
-    int values[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    char* symbols[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-
-    while (num > 0) {
-        while (num >= values[i]) {
-            strcpy(roman + pos, symbols[i]);     
-            pos += strlen(symbols[i]);             
-            num -= values[i];                     
+    int values[]={1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+    char* symbols[]={"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV","I"};
+    while(num>0)
+    {
+        while(num>=values[i])
+        {
+            strcpy(roman + pos, symbols[i]);
+            pos+=strlen(symbols[i]);
+            num-=values[i];
         }
         i++;
     }
-
-    roman[pos] = '\0'; 
+    roman[pos]='\0';
     return roman;
-}
-
-int main() {
-    printf("Input: 3749, Output: %s\n", intToRoman(3749));
-    printf("Input: 58, Output: %s\n", intToRoman(58));
-    printf("Input: 1994, Output: %s\n", intToRoman(1994));
-    return 0;
 }
