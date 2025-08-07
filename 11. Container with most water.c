@@ -20,7 +20,7 @@ Constraints:
 n == height.length
 2 <= n <= 10^5
 0 <= height[i] <= 10^4
-*/
+*/ 
 
 int maxArea(int* height, int heightSize) {
     int max=0;
