@@ -13,7 +13,7 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
     *returnColumnSizes = (int*)malloc(sizeof(int) * 100000);
     int count = 0;
 
-    for (int i = 0; i < numsSize - 2; i++) {
+    for (int i = 0; i < numsSize - 2; i++) { 
         if (i > 0 && nums[i] == nums[i - 1]) continue;
 
         int left = i + 1;
