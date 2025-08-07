@@ -8,7 +8,7 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
             }
         }
     }
-
+  
     int** result = (int**)malloc(sizeof(int*) * 100000);
     *returnColumnSizes = (int*)malloc(sizeof(int) * 100000);
     int count = 0;
