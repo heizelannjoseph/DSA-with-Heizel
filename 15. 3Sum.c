@@ -11,7 +11,7 @@
  *   - Constraints:
  *        3 <= numsSize <= 3000
  *        -10^5 <= nums[i] <= 10^5
- *
+ * 
  */
  
 #include <stdlib.h>
